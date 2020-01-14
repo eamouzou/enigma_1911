@@ -37,4 +37,14 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
   end
+
+  def test_it_can_encrypt_without_a_date
+    @enigma.stubs(:current_date).returns("040895")
+    expected = {
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "040895"
+    }
+    assert_equal expected, @enigma.encrypt("hello world", "02715")
+  end
 end
