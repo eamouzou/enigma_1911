@@ -14,4 +14,17 @@ class Cypher < ShiftValues
     Hash[alphabet.zip(alphabet.rotate(values[0]))]
   end
 
+  def self.encode_transform(input, values)
+    changed_input = ""
+    input.chars.each do |letter|
+      if alphabet.include?(letter) == false
+        changed_input = changed_input + letter
+        next
+      end
+      values = values.rotate unless changed_input.empty? == true
+      changed_input << encode_matched_alphabet(values)[letter]
+    end
+    changed_input
+  end
+
 end
