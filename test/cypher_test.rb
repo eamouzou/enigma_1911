@@ -39,8 +39,14 @@ class CypherTest < Minitest::Test
       "n"=>"k", "o"=>"l", "p"=>"m", "q"=>"n", "r"=>"o", "s"=>"p", "t"=>"q",
       "u"=>"r", "v"=>"s", "w"=>"t", "x"=>"u", "y"=>"v", "z"=>"w", " "=>"x"}
 
-      assert_equal expected, Cypher.decode_matched_alphabet([3, 27, 73, 20])
-    end
+    assert_equal expected, Cypher.decode_matched_alphabet([3, 27, 73, 20])
+  end
+
+  def test_decode_transform
+    values = [3, 27, 73, 20]
+
+    assert_equal "hello world", Cypher.decode_transform("keder ohulw", values)
+  end
 
 
 
