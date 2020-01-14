@@ -27,4 +27,10 @@ class Cypher < ShiftValues
     changed_input
   end
 
+  def self.encode(input, key, date)
+    values = values(key, date)
+    transformed = encode_transform(input, values)
+    {encryption: transformed, key: key, date: date}
+  end
+
 end
