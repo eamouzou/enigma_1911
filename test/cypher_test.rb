@@ -21,6 +21,12 @@ class CypherTest < Minitest::Test
       assert_equal expected, Cypher.encode_matched_alphabet([3, 27, 73, 20])
   end
 
-  
+  def test_encode_transform
+    values = [3, 27, 73, 20]
+
+    assert_equal "keder ohulw", Cypher.encode_transform("hello world", values)
+  end
+
+
 
 end
