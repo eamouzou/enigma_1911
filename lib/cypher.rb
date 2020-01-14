@@ -6,4 +6,8 @@ class Cypher < ShiftValues
     Cypher.new.values(key, date)
   end
 
+  def self.alphabet
+    ("a".."z").to_a << " "
+  end
+
 end
