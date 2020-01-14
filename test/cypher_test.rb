@@ -33,6 +33,15 @@ class CypherTest < Minitest::Test
     assert_equal expected, Cypher.encode("hello world", "02715", "040895")
   end
 
+  def test_decode_matched_alphabet
+    expected = {"a"=>"y", "b"=>"z", "c"=>" ", "d"=>"a", "e"=>"b", "f"=>"c",
+      "g"=>"d", "h"=>"e", "i"=>"f", "j"=>"g", "k"=>"h", "l"=>"i", "m"=>"j",
+      "n"=>"k", "o"=>"l", "p"=>"m", "q"=>"n", "r"=>"o", "s"=>"p", "t"=>"q",
+      "u"=>"r", "v"=>"s", "w"=>"t", "x"=>"u", "y"=>"v", "z"=>"w", " "=>"x"}
+
+      assert_equal expected, Cypher.decode_matched_alphabet([3, 27, 73, 20])
+    end
+
 
 
 

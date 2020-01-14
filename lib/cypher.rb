@@ -33,4 +33,8 @@ class Cypher < ShiftValues
     {encryption: transformed, key: key, date: date}
   end
 
+  def self.decode_matched_alphabet(values)
+    Hash[alphabet.zip(alphabet.rotate(- values[0]))]
+  end
+
 end
