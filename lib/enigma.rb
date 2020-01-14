@@ -11,10 +11,10 @@ class Enigma < Cypher
   end
 
   def encrypt(input, key = random_num, date = current_date)
-    Cypher.encode(input, key, date)
+    Enigma.encode(input, key, date)
   end
 
   def decrypt(input, key, date = current_date)
-    Cypher.decode(input, key, date)
+    Enigma.decode(input, key, date)
   end
 end
