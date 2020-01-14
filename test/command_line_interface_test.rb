@@ -16,4 +16,5 @@ class CommandLineInterfaceTest < Minitest::Test
     assert_equal "./lib/encrypted.txt", @command1.delivery_filepath
     assert_instance_of Enigma, @command1.enigma
   end
+
 end
