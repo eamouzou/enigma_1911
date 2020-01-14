@@ -10,4 +10,10 @@ class CommandLineInterfaceTest < Minitest::Test
   def test_it_exists
     assert_instance_of CommandLineInterface, @command1
   end
+
+  def test_attributes
+    assert_equal "./lib/message.txt", @command1.message_filepath
+    assert_equal "./lib/encrypted.txt", @command1.delivery_filepath
+    assert_instance_of Enigma, @command1.enigma
+  end
 end
