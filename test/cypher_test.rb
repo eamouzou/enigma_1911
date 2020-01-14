@@ -13,35 +13,14 @@ class CypherTest < Minitest::Test
   end
 
   def test_encode_matched_alphabet
-    expected = {"a"=>"e",
-      "b"=>"f",
-      "c"=>"g",
-      "d"=>"h",
-      "e"=>"i",
-      "f"=>"j",
-      "g"=>"k",
-      "h"=>"l",
-      "i"=>"m",
-      "j"=>"n",
-      "k"=>"o",
-      "l"=>"p",
-      "m"=>"q",
-      "n"=>"r",
-      "o"=>"s",
-      "p"=>"t",
-      "q"=>"u",
-      "r"=>"v",
-      "s"=>"w",
-      "t"=>"x",
-      "u"=>"y",
-      "v"=>"z",
-      "w"=>" ",
-      "x"=>"a",
-      "y"=>"b",
-      "z"=>"c",
-      " "=>"d"}
-      
+    expected = {"a"=>"d", "b"=>"e", "c"=>"f", "d"=>"g", "e"=>"h", "f"=>"i",
+      "g"=>"j", "h"=>"k", "i"=>"l", "j"=>"m", "k"=>"n", "l"=>"o", "m"=>"p",
+      "n"=>"q", "o"=>"r", "p"=>"s", "q"=>"t", "r"=>"u", "s"=>"v", "t"=>"w",
+      "u"=>"x", "v"=>"y", "w"=>"z", "x"=>" ", "y"=>"a", "z"=>"b", " "=>"c"}
+
       assert_equal expected, Cypher.encode_matched_alphabet([3, 27, 73, 20])
   end
+
+  
 
 end
