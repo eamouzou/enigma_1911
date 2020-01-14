@@ -17,4 +17,8 @@ class CommandLineInterfaceTest < Minitest::Test
     assert_instance_of Enigma, @command1.enigma
   end
 
+  def test_it_encrypts
+    assert_equal nil, @command1.encrypt_command_line_result
+  end
+
 end
