@@ -12,9 +12,9 @@ class ShiftValues
     squared(date).to_s.chars.last(4).map {|number| number.to_i}
   end
 
-  # def values(num, date)
-  #   key = key_values(num)
-  #   offset = offset_values(date)
-  #   key.zip(offset).map {|values| values.sum}
-  # end
+  def values(num, date)
+    key = key_values(num)
+    offset = offset_values(date)
+    key.zip(offset).map {|values| values.sum}
+   end
 end
