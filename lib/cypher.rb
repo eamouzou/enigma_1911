@@ -10,4 +10,8 @@ class Cypher < ShiftValues
     ("a".."z").to_a << " "
   end
 
+  def self.encode_matched_alphabet(values)
+    Hash[alphabet.zip(alphabet.rotate(values[0]))]
+  end
+
 end
