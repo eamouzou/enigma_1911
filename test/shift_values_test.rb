@@ -18,6 +18,10 @@ class ShiftValuesTest < Minitest::Test
     assert_equal [12, 23, 34, 45], @shift.key_values("12345")
   end
 
+  def test_offset_values
+    assert_equal [4, 4, 0, 0], @shift.offset_values("120120")
+  end
+
   def test_values
     assert_equal [16, 27, 34, 45], @shift.values("12345", "120120")
   end
