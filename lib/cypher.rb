@@ -50,4 +50,10 @@ class Cypher < ShiftValues
     changed_input
   end
 
+  def self.decode(input, key, date)
+    values = values(key, date)
+    transformed = decode_transform(input, values)
+    information = {decryption: transformed, key: key, date: date}
+  end
+
 end
