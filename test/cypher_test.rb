@@ -27,6 +27,13 @@ class CypherTest < Minitest::Test
     assert_equal "keder ohulw", Cypher.encode_transform("hello world", values)
   end
 
+  def test_it_encodes
+    expected = {encryption: "keder ohulw", key: "02715", date: "040895"}
+
+    assert_equal expected, Cypher.encode("hello world", "02715", "040895")
+  end
+
+
 
 
 end
