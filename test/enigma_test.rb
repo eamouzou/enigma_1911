@@ -19,4 +19,13 @@ class EnigmaTest < Minitest::Test
     assert_equal 5, @enigma.random_num.length
     assert_equal String, @enigma.random_num.class
   end
+
+  def test_it_can_encrypt_through_inheritance
+    expected = {
+      encryption: "keder ohulw",
+      key: "02715",
+      date: "040895"
+    }
+    assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
+  end
 end
