@@ -68,4 +68,21 @@ class EnigmaTest < Minitest::Test
     }
     assert_equal expected, @enigma.encrypt("hello world")
   end
+
+  def test_it_can_encrypt_special_characters
+    @enigma.stubs(:current_date).returns("040895")
+    @enigma.stubs(:random_num).returns("02715")
+    expected = {:encryption=>"zhgtgiwt-cwxtpukmcakdc- dyw lah whjsshxt?!??!",
+      :key=>"02715", :date=>"040895"}
+
+    assert_equal expected, @enigma.encrypt("who did - we must ask - let the dogs out?!??!", "02715", "040895")
+  end
+
+  def test_it_can_decrypt_special_characters
+    @enigma.stubs(:current_date).returns("040895")
+    expected = {:decryption=>"who did - we must ask - let the dogs out?!??!",
+      :key=>"02715", :date=>"040895"}
+
+    assert_equal expected, @enigma.decrypt("zhgtgiwt-cwxtpukmcakdc- dyw lah whjsshxt?!??!", "02715", "040895")
+  end
 end
