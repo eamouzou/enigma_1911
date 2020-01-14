@@ -54,6 +54,17 @@ class CypherTest < Minitest::Test
     assert_equal expected, Cypher.decode("keder ohulw", "02715", "040895")
   end
 
+  def test_it_encodes_and_decodes_special_characters
+    message = "The moment has come for the love revolution!!!
+    Where?"
+    message1 = "Tlvosscttxqwgwqruqvolshozlvorsltfvvjupkhosd!!!\nofdqWwkvv?"
+    expected = {encryption: message1, key: "02715", date: "130120"}
+    expected1 = {decryption: message, key: "02715", date: "130120"}
+
+    assert_equal expected, Cypher.encode(message, "02715", "130120")
+    assert_equal expected1, Cypher.decode(message1, "02715", "130120")
+  end
+
 
 
 
