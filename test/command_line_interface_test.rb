@@ -33,4 +33,24 @@ class CommandLineInterfaceTest < Minitest::Test
     assert_equal "keder ohulw", @command2.input_string_decrypt
   end
 
+  def test_it_can_encrypt_results
+    expected = {:encryption=>"keder ohulw", :key=>"02715", :date=>"040895"}
+    @command1.stubs(:encrypt_result).returns(expected)
+
+    assert_equal expected, @command1.encrypt_result
+  end
+
+  def test_it_can_decrypt_results
+    expected = {:decryption=>"hello world", :key=>"02715", :date=>"040895"}
+    @command1.stubs(:decrypt_result).returns(expected)
+
+    assert_equal expected, @command1.decrypt_result
+  end
+
+  def test_it_can_write_to_destination
+    
+  end
+
+
+
 end
