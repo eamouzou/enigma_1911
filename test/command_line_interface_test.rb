@@ -27,8 +27,10 @@ class CommandLineInterfaceTest < Minitest::Test
 
   def test_it_reads_input_strings
     File.stubs(:read).with("./lib/message.txt").returns("hello world")
+    File.stubs(:read).with("./lib/encrypted.txt").returns("keder ohulw")
 
     assert_equal "hello world", @command1.input_string_encrypt
+    assert_equal "keder ohulw", @command2.input_string_decrypt
   end
 
 end
