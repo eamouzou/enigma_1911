@@ -1,13 +1,16 @@
 require './lib/enigma'
 
 class CommandLineInterface
-  attr_reader :ARGV, :message_filepath, :delivery_filepath, :enigma
+  attr_reader :ARGV, :message_filepath, :delivery_filepath, :enigma,
+  :key_decrypt, :date_decrypt
 
   def initialize(arguments)
     @ARGV = arguments
     @message_filepath = "./lib/" + @ARGV[0]
     @delivery_filepath = "./lib/" + @ARGV[1]
     @enigma = Enigma.new
+    @key_decrypt = @ARGV[2].to_s
+    @date_decrypt = @ARGV[3].to_s
   end
 
   def input_string_encrypt

@@ -19,10 +19,16 @@ class CommandLineInterfaceTest < Minitest::Test
     assert_equal "./lib/message.txt", @command1.message_filepath
     assert_equal "./lib/encrypted.txt", @command1.delivery_filepath
     assert_instance_of Enigma, @command1.enigma
+    assert_equal "./lib/encrypted.txt", @command2.message_filepath
+    assert_equal "./lib/decrypted.txt", @command2.delivery_filepath
+    assert_equal "82648", @command2.key_decrypt
+    assert_equal "240818", @command2.date_decrypt
   end
 
-  def test_it_encrypts
-    assert_equal nil, @command1.encrypt_command_line_result
+  def test_it_reads_input_strings
+    File.stubs(:read).with("./lib/message.txt").returns("hello world")
+
+    assert_equal "hello world", @command1.input_string_encrypt
   end
 
 end
