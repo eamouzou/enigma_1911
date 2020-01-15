@@ -3,12 +3,16 @@ require './lib/command_line_interface'
 
 class CommandLineInterfaceTest < Minitest::Test
   def setup
-    argv = ["message.txt", "encrypted.txt"]
-    @command1 = CommandLineInterface.new(argv)
+    argv1 = ["message.txt", "encrypted.txt"]
+    @command1 = CommandLineInterface.new(argv1)
+
+    argv2 = ["encrypted.txt", "decrypted.txt", 82648, 240818]
+    @command2 = CommandLineInterface.new(argv2)
   end
 
-  def test_it_exists
+  def test_they_exist
     assert_instance_of CommandLineInterface, @command1
+    assert_instance_of CommandLineInterface, @command2
   end
 
   def test_attributes
