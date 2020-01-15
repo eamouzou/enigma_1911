@@ -32,7 +32,6 @@ class CommandLineInterface
     key = info[:key]
     date = info[:date]
     puts "Created #{@ARGV[1]} with the key #{key} and date #{date}"
-    require "pry"; binding.pry
   end
 
   def input_string_decrypt

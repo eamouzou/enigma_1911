@@ -56,6 +56,12 @@ class CommandLineInterfaceTest < Minitest::Test
     assert_equal expected2, @command2.write_to_decrypted
   end
 
+  def test_it_encrypts
+    assert_equal nil, @command1.encrypt_command_line_result
+  end
 
+  def test_it_decrypts
+    assert_equal nil, @command2.decrypt_command_line_result
+  end
 
 end
